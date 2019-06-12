@@ -1,0 +1,70 @@
+;need: front (1 yes, 0 no), base=1 yes or 0 no, rheo='creep' or not, szd (sz depth)
+
+
+;SETS UP THE MECHANICAL MODELS
+;EITHER CREEP OR D-P, BOTH T-DEPENDENT	
+
+ini dens 2700
+
+;M-C rheology for upper part
+
+;model mohr range z @mcdepth @extentz
+;prop shear .3e11 bulk 1e11 fric 35
+
+;with strain softening (from Phaedra, based on Koons 11)
+model strainsoftening ra z @mcdepth @extentz
+prop bul 1e10 shea .3e10 ftab=11 ctab=12
+prop fric 35 coh 50e6
+table 11 0,35 .03 15
+table 12 0 50e6 .03 1e5
+
+define flowlaw
+
+R=8.314
+zcen=0.5*extentz/zzon
+dm=175000.0
+dc=extentz
+
+Td=1673.0
+edot=1e-14
+kk=2.5
+aa=1e-6
+qm=(-kk/(dm+dc))*((aa*(dc^2)/(2*kk))-Td)
+ad=1e-33
+nd=4.0
+qd=150000.0
+
+;FOR DRUCKER MODEL
+command
+ model mechanical dr range z 0 @mcdepth
+ property bulk 1e11 shear 0.3e11 range z 0 @mcdepth
+endcommand
+
+loop while zcen<=mcdepth
+zd=-(extentz-zcen)
+
+;CALCULATE THE GEOTHERM/THERMAL PROFILE
+temp=(-aa/(2*kk)*zd^2-((qm+aa*dc)/kk)*zd+273)
+
+;CALCULATE kshear
+sheark=((edot/ad*2.718^(qd/(R*temp)))^(1/nd))/2*10
+bot=zcen-0.5*zmove
+top=zcen+0.5*zmove
+
+;GIVE THE ZONES kshear VALUES
+command 
+property kshear @sheark range z @bot @top
+list @sheark
+endcommand
+
+zcen=zcen+zmove
+endloop
+
+;make slab elastic
+command
+model mohr range group slabs
+prop shear .3e11 bulk 1e11 fric 35
+endcommand
+end
+
+@flowlaw

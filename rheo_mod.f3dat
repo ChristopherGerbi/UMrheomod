@@ -1,0 +1,28 @@
+; IF MATERIAL EXCEEDS STRESS THRESHOLD, WEAKEN BY A FACTOR OF 10
+def dp_sthreshold
+  while_stepping
+	local zn = zone_head
+	loop while zn # null
+	  local zn_2ndinvar = ((z_sxx(zn)*z_syy(zn)) + (z_syy(zn)*z_szz(zn)) + (z_szz(zn)*z_sxx(zn)) - z_sxy(zn)^2 - z_sxz(zn)^2 - z_syz(zn)^2)^0.5 ; second invariant of the deviatoric stress tensor
+	  z_extra(zn,10) = zn_2ndinvar ; store second invariant in zone extra 10
+		if abs(zn_2ndinvar) >= sthreshold
+		  if z_model(zn) = 'drucker'
+			local sheark = z_prop(zn,'kshear')
+			z_extra(zn,11) = sheark ; store k_shear value in zone extra 11
+			if z_extra(zn,11) # z_extra(zn,12) ; check that k_shear hasn't already been reduced
+			  global newsheark = sheark / 10
+			  z_extra(zn,12) = newsheark ; store new k_shear value in zone extra 12
+			  if z_prop(zn,'kshear') # newsheark
+				global zid = z_id(zn)
+				  command
+					property kshear @newsheark range id @zid
+				  end_command
+			  end_if
+			end_if
+		  end_if
+		end_if
+  	  zn = z_next(zn)
+	end_loop
+end
+
+@dp_sthreshold

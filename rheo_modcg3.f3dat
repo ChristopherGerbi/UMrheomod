@@ -1,0 +1,31 @@
+; IF MATERIAL EXCEEDS STRESS THRESHOLD, WEAKEN BY A FACTOR OF 10
+def ex_sthreshold
+  while_stepping
+	local zn = zone_head
+	loop while zn # null
+	  local zn_2ndinvar = (((z_sig1(zn)-z_sig2(zn))^2+(z_sig2(zn)-z_sig3(zn))^2+(z_sig1(zn)-z_sig3(zn))^2)/6)^0.5
+	  ;local zn_2ndinvar = (((z_sxx(zn))*(z_syy(zn))) + ((z_syy(zn))*(z_szz(zn))) + ((z_szz(zn))*(z_sxx(zn))) - z_sxy(zn)^2 - z_sxz(zn)^2 - z_syz(zn)^2) ; sqrt of second invariant of the deviatoric stress tensor
+	  z_extra(zn,10) = zn_2ndinvar ; store second invariant in zone extra 10
+
+		if zn_2ndinvar >= sthreshold
+		if z_model(zn) = 'viscous'
+			local viscc = z_prop(zn,'viscosity')
+			z_extra(zn,11) = viscc ; store k_shear value in zone extra 11
+			if z_extra(zn,11) # z_extra(zn,12) ; check that viscosity hasn't already been reduced
+			  global newviscc = viscc / 10
+			  z_extra(zn,12) = newviscc ; store new viscosity value in zone extra 12
+			  if z_prop(zn,'viscosity') # newviscc
+				global zid = z_id(zn)
+				  command
+					property viscosity @newviscc range id @zid
+				  end_command
+			  end_if
+			end_if
+		  end_if
+		  end_if
+
+  	  zn = z_next(zn)
+	end_loop
+end
+
+@ex_sthreshold

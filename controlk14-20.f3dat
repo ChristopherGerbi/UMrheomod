@@ -1,0 +1,162 @@
+; For generating a continental collision and evaluating erosion and shear zones
+; looking at surface results
+
+new
+
+set directory 'C:/Users/geodynamics/Desktop/flac3d_stress_cg/'
+
+call setupvars.f3dat
+restore @mechsetupcall
+list fish
+
+def StressArray
+	arr_size = 20
+	s_array = get_array(arr_size)
+	s_base = 5e15
+	s_increment = 1e15
+	loop ii(1,arr_size)
+	s_array(ii) = s_base + (s_increment*(ii-1))
+	end_loop
+end
+@StressArray
+
+def addlvars
+	;change these things
+	front=1			;whether there is a sz in the front, range def below
+	base=0			;whether there is a sz in the base, range def below
+	erosionrate = 0.0		;move in z per timestep
+	modelrun = 'cg-50-run-z'		;model file to run deformation
+	dist = 1.0 ;proportional distance from flat sz to top of dipping sz: 1=base of MC crust
+	szdist = 0.4 ;proportional distance from bottom to top of crust for basal shear zone 1=top
+	szlength = 100000; length of flat basal sz
+	dipszthick = 100; "width" of dipping sz
+
+;	oa=lose_array(region_erode)
+;	ob=lose_array(topogps)
+;	oc=lose_array(topoprofx)
+;	od=lose_array(topoprofz)
+;	oe=lose_array(velprofz)
+
+	erxmin = 400000.0						;low x of erosion range
+	erxmax = 500000.0					;high x of erosion range
+	erymin = 0.0						;low y of erosion range
+	erymax = extenty					;high y of erosion range
+	depth = 50.0						;depth of gridpoints to be affected by erosion
+
+	slabdip = 2.0
+	initxvel = 2.0						;imposed x velocity at left edge and in wedge
+	initzvel = -sin(slabdip*degrad);-0.035					;imposed z velocity in the slab
+	initzvel2 = initzvel*2				;for sensitivity tests
+	mcdepth = 38000.0					;minumum z position of Mohr-Coulomb behavior
+	rheol = 'dp'				;whether or not to use creep or DP for viscous portion
+	szdref = 0.3*zzon*zmove+0.5*zmov	; reference distance from bottom of model for basal shear zone
+	szd = szdist*zzon*zmove+0.5*zmov	;distance from bottom of model for basal shear zone
+	sztop = szd+dist*(mcdepth-szd)  ; top of dipping sz
+	xmove2 = 0.5*(halfx-x31)/xzon ;for setting the tolerance on the sz plane
+	szx1 = halfx-((halfx-x31)/xzon) ;base x position of where the szs intersect
+	szdip = atan((extentz/zzon)/((halfx-x31)/xzon))/degrad
+	szx = szx1-(szd-szdref)/tan(szdip*degrad) ;actual x position of sz intersection
+	szxleft = szx-szlength ; left edge of shear zone
+	szx2 = szx-szlength;non-intersection edge of the sz
+	;for saving out topo at x steps
+	stage=0
+	stgincr=20
+
+end
+@addlvars
+def stageset
+ stage=stage+stgincr
+end
+
+;TO MAKE THE ARRAY OF GRIDPOINTS TO BE ERODED
+;call erosion.f3dat
+
+;NAME RANGES AND GROUPS
+
+;group zone mc ra z @mcdepth @extentz
+
+;range name slab1 plane below o=500100 @yedgemax 0 dip=@slabdip dd=90 x 0 @extentx
+;group slabs range nrange slab1
+
+;range name sz1a plane distance @dipszthick o=@szx 250000 @szd dip=@szdip dd=90
+;range name sz1 z @szd @sztop nrange sz1a
+;range name sz2 x @szx @szx2
+;range name sz3 z -1000 -500  ; dummy range, replaced if basal sz is live
+;range name sz4 nrange sz2 nrange sz3
+
+
+
+;============================================================================================
+;DO THE STEPPING
+
+def doStep
+loop ii(1,10)
+	runname = 'k14-20-'+string(s_array(ii))
+	sthreshold = s_array(ii) ; stress threshold (2nd invariant) for drop in strength with DP model, as defined in rheo_mod.f3dat
+	;for saving increments
+	save00 = 'cg50-00-'+runname
+	save20 = 'cg50-20-'+runname
+	save40 = 'cg50-40-'+runname
+	save60 = 'cg50-60-'+runname
+	save80 = 'cg50-80-'+runname
+	loop while regrid_error = 0
+	command
+		group zone mc ra z @mcdepth @extentz
+		range name slab1 plane below o=500100 @yedgemax 0 dip=@slabdip dd=90 x 0 @extentx
+		range name sz1a plane distance @dipszthick o=@szx 250000 @szd dip=@szdip dd=90
+
+		call regrid_v4_170511.f3dat
+		call rheo.f3dat
+		call rheo_mod.f3dat
+
+		;group shearz range union nrange sz4 nrange sz1
+
+		pl set eye @halfx 1500000 25000 center @halfx @halfy 25000 o 90 180 0
+		pl zone propname kshear colorby prop
+		pl con zd
+		pl zone colorby group
+		pl zcon srxy
+		pl cut add plane normal 0 1 0 origin @halfx @halfy 0
+		call @modelrun
+		plot bitmap filename @save00 size 1200 900
+		;pl con zd
+		;pl cut add plane normal 0 1 0 origin @halfx @halfy 0
+
+		set logfile @runname
+		set log on
+
+		@stageset
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		;@topoplot
+		;save @save20
+		plot bitmap filename @save20 size 1200 900
+
+		@stageset
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		@regrid
+		ste 2000
+		;@topoplot
+		;save @save40
+		plot bitmap filename @save40 size 1200 900
+	end_command
+	regrid_error = 1
+	end_loop
+end_loop
+end
+@doStep

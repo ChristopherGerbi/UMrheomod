@@ -1,0 +1,4 @@
+new
+
+call setupvars.f3dat
+call cg-50-mech_setup-0.f3dat

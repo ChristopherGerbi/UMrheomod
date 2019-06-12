@@ -1,0 +1,169 @@
+new
+res cg50-20-k11-1
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-1
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-2
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-2
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-3
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-3
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-4
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-4
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-5
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-5
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-6
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-6
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-7
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-7
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-8
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-8
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-9
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-9
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-10
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-10
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-11
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-11
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-12
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-12
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-13
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-13
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-14
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-14
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-15
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-15
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-16
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-16
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-17
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-17
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-18
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-18
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-19
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-19
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-20
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-20
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-21
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-21
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-22
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-22
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-23
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-23
+plot bitmap filename cg50-40-k11-1 size 1200 900
+res cg50-20-k11-24
+plot bitmap filename cg50-20-k11-1 size 1200 900
+res cg50-40-k11-24
+plot bitmap filename cg50-40-k11-1 size 1200 900
+call controlk13-1
+call controlk13-2
+call controlk13-3
+call controlk13-4
+call controlk13-5
+call controlk13-6
+call controlk13-7
+call controlk13-8
+call controlk13-9
+call controlk13-10
+call controlk13-11
+call controlk13-12
+call controlk13-13
+call controlk13-14
+call controlk13-15
+call controlk13-16
+call controlk13-17
+call controlk13-18
+call controlk13-19
+call controlk13-20
+call controlk13-21
+call controlk13-22
+call controlk13-23
+call controlk13-24
+call controlk14-1
+call controlk14-2
+call controlk14-3
+call controlk1-4
+call controlk14-5
+call controlk14-6
+call controlk14-7
+call controlk14-8
+call controlk14-9
+call controlk14-10
+call controlk14-11
+call controlk14-12
+call controlk14-13
+call controlk14-14
+call controlk14-15
+call controlk14-16
+call controlk14-17
+call controlk14-18
+call controlk14-19
+call controlk14-20
+call controlk14-21
+call controlk14-22
+call controlk14-23
+call controlk14-24
+;call controlk12-1
+;call controlk12-2
+;call controlk12-3
+call controlk12-4
+call controlk12-5
+call controlk12-6
+call controlk12-7
+call controlk12-8
+call controlk12-9
+call controlk12-10
+call controlk12-11
+call controlk12-12
+call controlk12-13
+call controlk12-14
+call controlk12-15
+call controlk12-16
+call controlk12-17
+call controlk12-18
+call controlk12-19
+call controlk12-20
+call controlk12-21
+call controlk12-22
+call controlk12-23
+call controlk12-24

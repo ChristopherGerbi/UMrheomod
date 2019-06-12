@@ -1,0 +1,63 @@
+;kinematic initial and boundary conditions, including erosion
+
+;______________________________________________________________________________________________
+
+; prescribe velocities
+
+;set velocity of lower part of model, below a plane dipping in the x direction
+
+ini xd 0.0 yd 0.0 zd 0.0
+ini xv 0.0 yv 0.0 zv 0.0
+fix y range x @xedgemin @xedgemax
+fix y range x -100 100
+fix y range y -100 100
+fix y range y @yedgemin @yedgemax 
+;fix z range x 500100 @extentx z -100 100 
+
+
+
+;set initial velocities
+
+;ini xvel=@initxvel grad -0.000002 0.0 0.0 range x -100 @extentx
+ini xvel=@initxvel ra x -100 500100
+ini zvel=0 grad -0.0000005 0.0 0.0 range slab1
+
+
+;fix the slab bottom and back edge
+fix x ra x -100 100
+;fix x,z ra slab1
+fix x,z ra x 0 500100 z -100 100
+
+
+;=============================
+;Jeff's lines
+;fix x,y,z range x=-10,500000 ; 
+
+;INI XV=2.0 RANGE X=-10,500000
+
+;ini zv=0 grad=-.0000005 0 0 ra x=220000,500000 
+
+;fix y range x=999900 1000100
+
+;pl se pla di=90 dd=0
+;pl ssr
+;pl vel
+;=============================
+
+
+
+; do erosion (m/timestep)
+def erode_region
+whilestepping
+count2 = 1
+loop while count2 <= gpno
+  gpn = region_erode(count2)
+  gp_zpos(gpn) = gp_zpos(gpn) - erosionrate
+  count2 = count2 + 1
+end_loop
+
+end
+
+@erode_region
+
+

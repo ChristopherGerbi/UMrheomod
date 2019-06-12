@@ -1,0 +1,145 @@
+def find_erode_number_gp
+;need runname as a string variable to save out topo and surface vel data
+
+;count how many gridpoints are in the erosion range
+ global gplook=gp_head
+ global gpno = 1
+ global erbase=extentz-depth
+
+  loop while gplook # null
+  if gp_xpos(gplook)>=erxmin then
+  	if gp_xpos(gplook)<=erxmax then
+  		if gp_ypos(gplook)>=erymin then
+  			if gp_ypos(gplook)<=erymax then
+  				if gp_zpos(gplook)>erbase then
+  				gpno=gpno+1
+  				endif
+  			endif
+  		endif
+  	endif
+  endif
+  gplook=gp_next(gplook)
+ end_loop
+ gpno=gpno-1
+end
+
+@find_erode_number_gp
+
+def find_erode_gp
+
+global gpno2=1
+
+
+; make an array big enough for all the gridpoints
+array region_erode(gpno)
+
+;fill the array with the gridpoint numbers
+gpadd=gp_head
+  loop while gpadd#null
+  if gp_xpos(gpadd)>=erxmin then
+  	if gp_xpos(gpadd)<=erxmax then
+  		if gp_ypos(gpadd)>=erymin then
+  			if gp_ypos(gpadd)<=erymax then
+  				if gp_zpos(gpadd)>erbase then
+  				region_erode(gpno2)=gpadd
+  				gpno2=gpno2+1
+  				endif
+  			endif
+  		endif
+  	endif
+  endif
+  gpadd=gp_next(gpadd)
+ end_loop
+end
+
+@find_erode_gp
+
+
+
+
+
+def gplist
+ global listgps = 1
+ loop while listgps<gpno+1
+ command
+ list @region_erode(@listgps)
+ endcommand
+ listgps=listgps+1
+ endloop
+end
+
+def topofind
+;to plot a topographic profile
+;we know the # of gridpoints in this case
+
+array topogps(pts)
+gpno3 = 1
+;as with erosion, find the gps
+gptopo=gp_head
+  loop while gptopo#null
+  if gp_xpos(gptopo)>=0 then
+  	if gp_xpos(gptopo)<=extentx then
+  		if gp_ypos(gptopo)>=topoymin then
+  			if gp_ypos(gptopo)<=topoymax then
+  				if gp_zpos(gptopo)>erbase then
+  				topogps(gpno3)=gptopo
+  				gpno3=gpno3+1
+  				endif
+  			endif
+  		endif
+  	endif
+  endif
+  gptopo=gp_next(gptopo)
+ end_loop
+end
+
+@topofind
+
+def topoplot
+;make an array with x and z positions and velocities for each surface gridpoint
+gpno4=1
+
+array topoprofx(pts,2)
+array topoprofz(pts)
+
+  loop while gpno4<=pts
+  tpnt=topogps(gpno4)
+  topoprofx(gpno4,1)=gp_xpos(tpnt)
+  topoprofx(gpno4,2)=gp_zpos(tpnt)
+  topoprofz(gpno4)=gp_zpos(tpnt)
+  gpno4=gpno4+1
+  end_loop
+
+	topodatax = 'topox20'+runname+'-'+string(timestep)		
+	topodataz = 'topoz20'+runname+'-'+string(timestep)			
+	veldatax = 'velx20'+runname+'-'+string(timestep)			
+	veldataz = 'velz20'+runname+'-'+string(timestep)			
+
+;write to a file
+
+ix=open(topodatax,1,1)
+ix=write(topoprofx,pts)
+ix=close
+iz=open(topodataz,1,1)
+iz=write(topoprofz,pts)
+iz=close
+
+array velprofz(pts)
+gpno4=1
+  loop while gpno4<=pts
+  tpnt=topogps(gpno4)
+
+  velprofz(gpno4)=gp_zvel(tpnt)
+  gpno4=gpno4+1
+  end_loop
+
+
+;write to a file
+
+vz=open(veldataz,1,1)
+vz=write(velprofz,pts)
+vz=close
+end
+
+list @gpno
+save @mechsetupsave

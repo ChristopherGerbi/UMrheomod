@@ -1,0 +1,39 @@
+new
+
+def vars
+	extentx = 1000000.0 				;model length in x
+	extenty = 300000.0 				;model length in y
+	extentz = 50000.0					;model length in z
+	halfx = extentx/2
+	halfy = extenty/2
+	xedgemin = extentx-10
+	xedgemax = extentx+10
+	yedgemin = extenty-10
+	yedgemax = extenty+10
+	topoymin = extenty/2-10
+	topoymax = extenty/2+10
+	x31=300000.0						;middle is denser grid - boundary between middle and edge
+	ratx = 1							;zone scaling ratio in x
+	xzon = 10						;zones in x in middle
+	yzon = 3						;zones in y in middle
+	zzon = 20				;zones in z in middle
+	xzon2 = 10					;zones in x on edge
+	yzon2 = 3					;zones in y on edge
+	zzon2 = 20					;zones in z on edge
+	xzonbase = 40
+	zmove=extentz/zzon
+	zmovemin = zmove-10
+	zmovemax = zmove+10
+	xprofnear = halfy				;the y-value near where to plot the topography profile
+	
+	mechsetupsave = 'cg50mech'	;file to save mech setup to
+	thermsetupsave = 'cg50therm'	;file to save thermal setup to
+	mechsetupcall = mechsetupsave	;mech file to restore
+	thermsetupcall = thermsetupsave	;thermal file to restore
+	settlesteps = 10000				;number of steps for settling in the mechanical setup
+	pts=4*xzon+1						;number of points for topographic profile
+end
+
+
+
+@vars
