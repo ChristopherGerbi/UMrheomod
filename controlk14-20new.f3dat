@@ -3,7 +3,7 @@
 
 new
 
-set directory 'C:/Users/geodynamics/Documents/flac3d_stress_cg/'
+set directory 'C:/Users/geodynamics/Documents/cg/UMrheomod/'
 
 call setupvars.f3dat
 restore @mechsetupcall
