@@ -10,7 +10,7 @@ def ex_sthreshold
 		if zn_2ndinvar >= sthreshold
 		if z_model(zn) = 'viscous'
 			local viscc = z_prop(zn,'viscosity')
-			z_extra(zn,11) = viscc ; store k_shear value in zone extra 11
+			z_extra(zn,11) = viscc ; store viscosity value in zone extra 11
 			if z_extra(zn,11) # z_extra(zn,12) ; check that viscosity hasn't already been reduced
 			  global newviscc = viscc / 10
 			  z_extra(zn,12) = newviscc ; store new viscosity value in zone extra 12

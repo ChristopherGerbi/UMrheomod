@@ -4,7 +4,7 @@
 
 new
 
-set directory 'C:/users/geodynamics/Desktop/flac3d_stress_cg/'
+set directory 'C:/users/geodynamics/Documents/flac3d_stress_cg/'
 
 call setupvars.f3dat
 restore @mechsetupcall
@@ -45,7 +45,7 @@ def stageset
 end
 
 ;TO MAKE THE ARRAY OF GRIDPOINTS TO BE ERODED
-call erosion.f3dat
+;call erosion.f3dat
 
 ;NAME RANGES AND GROUPS
 
@@ -69,7 +69,7 @@ def doStep
 	command
 		;group zone mc ra z @mcdepth @extentz
 		range name slab1 plane below o=500100 @yedgemax 0 dip=@slabdip dd=90 x 0 @extentx
-		
+
 		call regrid_v4_170511.f3dat
 		call rheocg2.f3dat
 		call rheo_modcg3.f3dat
@@ -78,9 +78,9 @@ def doStep
 		pl cut add plane normal 0 1 0 origin @halfx @halfy 0
 		;pl zcon zd
 		pl zone colorby model
-		pl zone propname viscosity colorby prop	
+		pl zone propname viscosity colorby prop
 		pl con xv
-		
+
 		call @modelrun
 		plot bitmap filename @save00 size 1200 900
 		;pl con zd

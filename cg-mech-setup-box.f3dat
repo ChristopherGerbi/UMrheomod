@@ -1,0 +1,47 @@
+; setup and settling
+
+config zextra 15
+
+gen zone brick size @xzon2 @yzon2 @zzon2 ratio @ratx 1 1 p0=0 0 0 p1=@x31 0 0 p2=0 @halfy 0 p3 0 0 @extentz
+gen zone brick size @xzon @yzon @zzon ratio 1 1 1 p0=@x31 0 0 p1=@halfx 0 0 p2=@x31 @halfy 0 p3 @x31 0 @extentz
+
+gen zone reflect normal 1 0 0 origin @halfx 0 0 ; reflects in x direction
+gen zone reflect normal 0 1 0 origin 0 @halfy 0 ; reflects in y direction
+
+attach face range x 299900 300100
+attach face range x 699900 700100
+;______________________________________________________________________________________________
+
+
+model elastic
+
+ini dens 2700
+prop shear .3e11 bulk 1e11
+
+;______________________________________________________________________________________________
+
+
+;fixes the velocities to 0 at the model boundaries
+
+fix xv range x -10 10
+fix xv range x @xedgemin @xedgemax
+
+fix yv range y -10 10
+fix yv range y @yedgemin @yedgemax
+fix xv yv zv range z -10 10
+
+set grav 0,0,-9.81
+set large
+
+
+;setting initial pressure so that pressure at surface is 0
+
+ini sxx=-1.32435e9 grad 0 0 .026487e6
+ini syy=-1.32435e9 grad 0 0 .026487e6
+ini szz=-1.32435e9 grad 0 0 .026487e6
+
+pl con zv
+
+ste @settlesteps
+
+save @mechsetupsave
