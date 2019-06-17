@@ -1,4 +1,3 @@
-new
 
 def vars
 	extentx = 1000000.0 				;model length in x
@@ -14,7 +13,7 @@ def vars
 	topoymax = extenty/2+10
 	x31=300000.0						;middle is denser grid - boundary between middle and edge
 	ratx = 1							;zone scaling ratio in x
-	xzon = 10						;zones in x in middle
+	xzon = 100						;zones in x in middle
 	yzon = 3						;zones in y in middle
 	zzon = 20				;zones in z in middle
 	xzon2 = 10					;zones in x on edge

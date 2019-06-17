@@ -1,24 +1,25 @@
 ;need: front (1 yes, 0 no), base=1 yes or 0 no, rheo='creep' or not, szd (sz depth)
-
-
+;
+;
 ;SETS UP THE MECHANICAL MODELS
 ;EITHER CREEP OR D-P, BOTH T-DEPENDENT	
-
-ini dens 2700
-
+;
+;ini dens 2700
+;
 ;M-C rheology for upper part
-
+;
 ;model mohr range z @mcdepth @extentz
 ;prop shear .3e11 bulk 1e11 fric 35
-
+;
 ;with strain softening (from Phaedra, based on Koons 11)
-model strainsoftening ra z @mcdepth @extentz
-prop bul 1e10 shea .3e10 ftab=11 ctab=12
-prop fric 35 coh 50e6
-table 11 0,35 .03 15
-table 12 0 50e6 .03 1e5
+zone cmodel strain-softening ra position-z @mcdepth @extentz
 
-define flowlaw
+zone property bulk 1e10 shear .3e10 table-friction 11 table-cohesion 12
+zone property friction 35 cohesion 50e6
+table '11' add 0 35 .03 15
+table '12' add 0 50e6 .03 1e5
+;
+fish define flowlaw
 
 R=8.314
 zcen=0.5*extentz/zzon
@@ -36,14 +37,15 @@ qd=150000.0
 
 ;if rheol='creep'
 command
-config creep
-model mechanical viscous range z 0 @mcdepth
-
-property bulk 1e11 shear 0.3e11 density 2700 viscosity 1e20 range z 0 @mcdepth
-
+model configure creep
+zone cmodel assign maxwell range position-z 0 @mcdepth
+;
+zone property bulk 1e11 shear 0.3e11 density 2700 viscosity 1e20 range position-z 0 @mcdepth
+;
 ;his add crtime
-set creep on
-set creep dt 1
+model creep active on
+model creep timestep starting 1
+model creep timestep fix 1
 endcommand
 
 
@@ -72,9 +74,10 @@ endcommand
 
 ;make slab elastic
 command
-model mohr range group slabs
-prop shear .3e11 bulk 1e11 fric 35
+zone cmodel assign mohr-coulomb range group 'slabs'
+zone property shear .3e11 bulk 1e11 friction 35
+;
 endcommand
 end
-
+;
 @flowlaw

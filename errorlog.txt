@@ -1,0 +1,7 @@
+ 600-064
+Mon June 17 2019 at 18:29:16
+Module: C:\Program Files\Itasca\Flac3d600\exe64\flac3d600_gui.exe
+GUI Version: 005-128
+Operating system: Microsoft  (build 9200), 64-bit.
+12 processor(s), type 8664.
+

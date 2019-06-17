@@ -1,0 +1,934 @@
+**********************************************
+* Logging started at Wed Jun 12 12:37:04 2019
+* By flac3d Version 5.01 Release 148
+* 
+* 
+* Job Title: 
+**********************************************
+flac3d>		set log on
+flac3d>		@stageset
+flac3d>		@regrid
+1
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+2
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+3
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+4
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+5
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+6
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+7
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+8
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+9
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+10
+Max change this step
+flac3d>  list @maxch
+maxch = 0.000000000000000e+00 (real)
+Max total change
+flac3d> list @maxch
+maxch = 1.000000000000000e-08 (real)
+flac3d>		ste 2000
+Starting at: Wed June 12 2019 12:37:11 pm
+Calculating geometric constants...                                  flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+flac3d>					property kshear @newsheark range id @zid
+--- Property kshear of model drucker modified in 1 zones.
+   Step      Of    Total  Max-Unbal.       Ratio
+------- ------- -------- ----------- ----------- 
+   2000    2000    12000  7.8112e+15  6.3877e-04 
+--- Ending at: Wed June 12 2019 12:37:54 pm
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>		;@topoplot
+flac3d>		;save @save20
+flac3d>		plot bitmap filename @save20 size 1200 900
+flac3d>		;@stageset
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>		;@regrid
+flac3d>		;ste 2000
+flac3d>	;	@regrid
+flac3d>		;ste 2000
+flac3d>		;@topoplot
+flac3d>		;save @save40
+flac3d>	;	plot bitmap filename @save40 size 1200 900

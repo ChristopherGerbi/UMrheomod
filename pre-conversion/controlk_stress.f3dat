@@ -1,0 +1,125 @@
+; For generating a continental collision and evaluating erosion and shear zones
+; looking at surface results
+;szs are formed by a stress threshold weakening rule
+
+new
+
+set directory 'C:/users/geodynamics/Documents/flac3d_stress_cg/'
+
+call setupvars.f3dat
+restore @mechsetupcall
+list fish
+
+def addlvars
+	;change these things
+	sthreshold = 1e9
+	erosionrate = 0.0		;move in z per timestep
+	modelrun = 'cg-50-run-z'		;model file to run deformation
+
+;	oa=lose_array(region_erode)
+;	ob=lose_array(topogps)
+;	oc=lose_array(topoprofx)
+;	od=lose_array(topoprofz)
+;	oe=lose_array(velprofz)
+
+	erxmin = 400000.0						;low x of erosion range
+	erxmax = 500000.0					;high x of erosion range
+	erymin = 0.0						;low y of erosion range
+	erymax = extenty					;high y of erosion range
+	depth = 50.0						;depth of gridpoints to be affected by erosion
+	slabdip = 2.0
+	initxvel = 2.0						;imposed x velocity at left edge and in wedge
+	initzvel = -sin(slabdip*degrad);-0.035					;imposed z velocity in the slab
+	initzvel2 = initzvel*2				;for sensitivity tests
+	mcdepth = 38000.0					;minumum z position of Mohr-Coulomb behavior
+	rheol = 'creep'				;whether or not to use creep or DP for viscous portion
+
+	;for saving out topo at x steps
+	stage=0
+	stgincr=20
+
+end
+@addlvars
+def stageset
+ stage=stage+stgincr
+end
+
+;TO MAKE THE ARRAY OF GRIDPOINTS TO BE ERODED
+;call erosion.f3dat
+
+;NAME RANGES AND GROUPS
+
+group zone mc ra z @mcdepth @extentz
+
+range name slab1 plane below o=500100 @yedgemax 0 dip=@slabdip dd=90 x 0 @extentx
+group slabs range nrange slab1
+
+;============================================================================================
+;DO THE STEPPING
+
+def doStep
+	runname = 'str'+string(sthreshold)
+	;for saving increments
+	save00 = 'cg50-00-'+runname
+	save20 = 'cg50-20-'+runname
+	save40 = 'cg50-40-'+runname
+	save60 = 'cg50-60-'+runname
+	save80 = 'cg50-80-'+runname
+;	loop while regrid_error = 0
+	command
+		;group zone mc ra z @mcdepth @extentz
+		range name slab1 plane below o=500100 @yedgemax 0 dip=@slabdip dd=90 x 0 @extentx
+
+		call regrid_v4_170511.f3dat
+		call rheocg2.f3dat
+		call rheo_modcg3.f3dat
+
+		pl set eye @halfx 1500000 25000 center @halfx @halfy 25000 o 90 0 0
+		pl cut add plane normal 0 1 0 origin @halfx @halfy 0
+		;pl zcon zd
+		pl zone colorby model
+		pl zone propname viscosity colorby prop
+		pl con xv
+
+		call @modelrun
+		plot bitmap filename @save00 size 1200 900
+		;pl con zd
+		;pl cut add plane normal 0 1 0 origin @halfx @halfy 0
+
+		set logfile @runname
+		set log on
+
+		@stageset
+		@regrid
+		ste 500
+;		@regrid
+;		ste 2000
+;		@regrid
+;		ste 2000
+;		@regrid
+;		ste 2000
+;		@regrid
+;		ste 2000
+;		;@topoplot
+;		;save @save20
+		plot bitmap filename @save20 size 1200 900
+;
+;		@stageset
+;		@regrid
+;		ste 2000
+;		@regrid
+;		ste 2000
+;		@regrid
+;		ste 2000
+;		@regrid
+;		ste 2000
+;		@regrid
+;		ste 2000
+		;@topoplot
+		;save @save40
+;		plot bitmap filename @save40 size 1200 900
+	end_command
+;	regrid_error = 1
+;	end_loop
+end
+@doStep

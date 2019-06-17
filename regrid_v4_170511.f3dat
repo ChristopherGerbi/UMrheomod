@@ -4,109 +4,109 @@
 ;       less accurate.
 ;       No null zones allowed in this formulation.
 ;       Call this file after model has been defined,but before stepping
-
-
+;
+;
 ;set echo off
-
-def setupmem
- fssurf=get_mem(ngp*3);xsurface,ysurface,zsurface
- pairs1=get_mem(8) 
- pairs2=get_mem(8) 
- coords=get_mem(ngp*3)
- coords2=get_mem(ngp*3)
- znn2zn=get_mem(nzone)
- gpn2gp=get_mem(ngp)
+;
+fish define setupmem
+ fssurf=memory.create(gp.num*3);xsurface,ysurface,zsurface
+ pairs1=memory.create(8) 
+ pairs2=memory.create(8) 
+ coords=memory.create(gp.num*3)
+ coords2=memory.create(gp.num*3)
+ znn2zn=memory.create(zone.num)
+ gpn2gp=memory.create(gp.num)
 end
-
-def repairbase
- zn=zone_head
+;
+fish define repairbase
+ zn=zone.head
  loop while zn#null
-  if gp_zpos(z_gp(zn,1))=0 then
-   gp1=z_gp(zn,1) 
-   gp2=z_gp(zn,2) 
-   gp3=z_gp(zn,3) 
-   gp4=z_gp(zn,4) 
-   gp5=z_gp(zn,5) 
-   gp6=z_gp(zn,6) 
-   gp7=z_gp(zn,7) 
-   gp8=z_gp(zn,8) 
-   gp_xpos(gp1)=gp_xpos(gp4)
-   gp_ypos(gp1)=gp_ypos(gp4)
-   gp_xpos(gp2)=gp_xpos(gp7)
-   gp_ypos(gp2)=gp_ypos(gp7)
-   gp_xpos(gp3)=gp_xpos(gp6)
-   gp_ypos(gp3)=gp_ypos(gp6)
-   gp_xpos(gp5)=gp_xpos(gp8)
-   gp_ypos(gp5)=gp_ypos(gp8)
+  if gp.pos.z(zone.gp(zn,1))=0 then
+   gp1=zone.gp(zn,1) 
+   gp2=zone.gp(zn,2) 
+   gp3=zone.gp(zn,3) 
+   gp4=zone.gp(zn,4) 
+   gp5=zone.gp(zn,5) 
+   gp6=zone.gp(zn,6) 
+   gp7=zone.gp(zn,7) 
+   gp8=zone.gp(zn,8) 
+   gp.pos.x(gp1)=gp.pos.x(gp4)
+   gp.pos.y(gp1)=gp.pos.y(gp4)
+   gp.pos.x(gp2)=gp.pos.x(gp7)
+   gp.pos.y(gp2)=gp.pos.y(gp7)
+   gp.pos.x(gp3)=gp.pos.x(gp6)
+   gp.pos.y(gp3)=gp.pos.y(gp6)
+   gp.pos.x(gp5)=gp.pos.x(gp8)
+   gp.pos.y(gp5)=gp.pos.y(gp8)
   end_if    
-  zn=z_next(zn)
+  zn=zone.next(zn)
  end_loop
 end
-
-def zones_gp_ct
+;
+fish define zones_gp_ct
 
 ;build zone numbering format 
- xtable(1+1,1)=2 
- xtable(1+1,2)=3
- xtable(1+1,3)=4
+ table.x(1+1,1)=2 
+ table.x(1+1,2)=3
+ table.x(1+1,3)=4
 
- xtable(2+1,1)=1
- xtable(2+1,2)=5
- xtable(2+1,3)=7
+ table.x(2+1,1)=1
+ table.x(2+1,2)=5
+ table.x(2+1,3)=7
  
- xtable(3+1,1)=1
- xtable(3+1,2)=5
- xtable(3+1,3)=6
+ table.x(3+1,1)=1
+ table.x(3+1,2)=5
+ table.x(3+1,3)=6
  
- xtable(4+1,1)=1
- xtable(4+1,2)=6
- xtable(4+1,3)=7
+ table.x(4+1,1)=1
+ table.x(4+1,2)=6
+ table.x(4+1,3)=7
  
- xtable(5+1,1)=2
- xtable(5+1,2)=3
- xtable(5+1,3)=8
+ table.x(5+1,1)=2
+ table.x(5+1,2)=3
+ table.x(5+1,3)=8
  
- xtable(6+1,1)=3
- xtable(6+1,2)=4
- xtable(6+1,3)=8
+ table.x(6+1,1)=3
+ table.x(6+1,2)=4
+ table.x(6+1,3)=8
  
- xtable(7+1,1)=2
- xtable(7+1,2)=4
- xtable(7+1,3)=8
+ table.x(7+1,1)=2
+ table.x(7+1,2)=4
+ table.x(7+1,3)=8
  
- xtable(8+1,1)=6
- xtable(8+1,2)=7
- xtable(8+1,3)=5
+ table.x(8+1,1)=6
+ table.x(8+1,2)=7
+ table.x(8+1,3)=5
 
 ;clear mem
-rgct=get_mem(ngp*6)
-loop rgi (0,ngp*6-1)
-  mem(rgct+rgi)=0
+rgct=memory.create(gp.num*6)
+loop rgi (0,gp.num*6-1)
+  memory(rgct+rgi)=0
 end_loop
 
 ; Build gp connection list
 
-zn = zone_head
+zn = zone.head
  loop while zn#null
   loop rgi(1,8)
-   p_gp=z_gp(zn,rgi)
-   gpn=gp_id(p_gp)
+   p_gp=zone.gp(zn,rgi)
+   gpn=gp.id(p_gp)
    arrnum=rgct+6*(gpn+(-1))
    ;connected to gp i is ...
-   p_gp=z_gp(zn,xtable(rgi+1,1))
-   gpn1=gp_id(p_gp)
-   p_gp=z_gp(zn,xtable(rgi+1,2))
-   gpn2=gp_id(p_gp)
-   p_gp=z_gp(zn,xtable(rgi+1,3))
-   gpn3=gp_id(p_gp)
+   p_gp=zone.gp(zn,table.x(rgi+1,1))
+   gpn1=gp.id(p_gp)
+   p_gp=zone.gp(zn,table.x(rgi+1,2))
+   gpn2=gp.id(p_gp)
+   p_gp=zone.gp(zn,table.x(rgi+1,3))
+   gpn3=gp.id(p_gp)
    
 
    ;check connect list to see what we have so far
    rgcnt=0
 
-    gpc=mem(arrnum+rgcnt)
+    gpc=memory(arrnum+rgcnt)
     loop while gpc#0
-    gpc=mem(arrnum+rgcnt)
+    gpc=memory(arrnum+rgcnt)
     if gpc#0 then
      if gpn1=gpc then
       gpn1=0
@@ -127,61 +127,61 @@ zn = zone_head
    ;append connect list
 
    if gpn1#0 then
-    mem(arrnum+rgcnt)=gpn1
+    memory(arrnum+rgcnt)=gpn1
     rgcnt=rgcnt+1
    end_if
 
    if gpn2#0 then
-    mem(arrnum+rgcnt)=gpn2
+    memory(arrnum+rgcnt)=gpn2
     rgcnt=rgcnt+1
    end_if
 
    if gpn3#0 then
-    mem(arrnum+rgcnt)=gpn3
+    memory(arrnum+rgcnt)=gpn3
    end_if
 
   end_loop
-  zn=z_next(zn)
+  zn=zone.next(zn)
  
  end_loop
 
 
 ;Zone IDs to Zone Ptrs
- zn=zone_head
+ zn=zone.head
  loop while zn#null
-  znn=z_id(zn)-1
-  mem(znn2zn+znn)=zn
-  zn=z_next(zn)
+  znn=zone.id(zn)-1
+  memory(znn2zn+znn)=zn
+  zn=zone.next(zn)
  end_loop
 
 ;GP IDs to GP Ptrs
- gp=gp_head
+ gp=gp.head
  loop while gp#null
-  gpn=gp_id(gp)-1
-  mem(gpn2gp+gpn)=gp
-  gp=gp_next(gp)
+  gpn=gp.id(gp)-1
+  memory(gpn2gp+gpn)=gp
+  gp=gp.next(gp)
  end_loop
 
 
 ;finds zones around each gp
-zgm=get_mem(6*ngp)
-loop zgi(0,6*ngp-1)
- mem(zgm+zgi)=0
+zgm=memory.create(6*gp.num)
+loop zgi(0,6*gp.num-1)
+ memory(zgm+zgi)=0
 end_loop
 
-zn=zone_head
+zn=zone.head
 loop while zn#null
- znn=z_id(zn)
+ znn=zone.id(zn)
  loop zgi(1,8)
-  gp=z_gp(zn,zgi)
-  gpn=gp_id(gp)
+  gp=zone.gp(zn,zgi)
+  gpn=gp.id(gp)
   gparr=(gpn-1)*6
   ;check to see if we already have this zone
   zgj=0
   znval=1
   gotflg=0
   loop while znval#0
-   znval=mem(zgm+gparr+zgj)
+   znval=memory(zgm+gparr+zgj)
    if znval=znn then
     gotflg=1
    end_if
@@ -192,36 +192,36 @@ loop while zn#null
   end_loop
   zgj=zgj-1
   if gotflg=0 then
-   mem(zgm+gparr+zgj)=znn
+   memory(zgm+gparr+zgj)=znn
   end_if
  end_loop
- zn=z_next(zn)
+ zn=zone.next(zn)
 end_loop
 
 ;find zones around each zone, including the centre zone
- zzm=get_mem(27*ngp)
- loop zgi(0,27*ngp-1)
-  mem(zzm+zgi)=0
+ zzm=memory.create(27*gp.num)
+ loop zgi(0,27*gp.num-1)
+  memory(zzm+zgi)=0
  end_loop
 
- zn=zone_head
+ zn=zone.head
  loop while zn#null
-  znn=z_id(zn)
+  znn=zone.id(zn)
   znarr=(znn-1)*27
   loop zgi(1,8)
-   gp=z_gp(zn,zgi)
-   gpn=gp_id(gp)
+   gp=zone.gp(zn,zgi)
+   gpn=gp.id(gp)
    gparr=(gpn-1)*6
    znval=1
    zgj=0
    loop while znval#0
-    znval=mem(zgm+gparr+zgj)
+    znval=memory(zgm+gparr+zgj)
     ; Check to see if we already have this zone
     znval2=1
     zgk=0
     gotflg=0
     loop while znval2#0
-     znval2=mem(zzm+znarr+zgk)
+     znval2=memory(zzm+znarr+zgk)
      if znval=znval2 then
       gotflg=1
      end_if
@@ -233,7 +233,7 @@ end_loop
     zgk=zgk-1
     ;Add zone to zone list if we haven't got it
     if gotflg=0 then
-     mem(zzm+znarr+zgk)=znval
+     memory(zzm+znarr+zgk)=znval
     end_if
     zgj=zgj+1
     if zgj>5 then
@@ -241,15 +241,15 @@ end_loop
     end_if
    end_loop
   end_loop
-  zn=z_next(zn)
+  zn=zone.next(zn)
  end_loop
 
-err=lose_mem(6*ngp,zgm)
+err=memory.delete(zzm)
 
 end
-
-
-def findsurfaces
+;
+;
+fish define findsurfaces
  ;finds the surfaces of the model - expects rectangular cross-sections
 
  xmin=1e10
@@ -260,102 +260,102 @@ def findsurfaces
  zmax=-1e10
 
 ;find max-min
- gp=gp_head
+ gp=gp.head
  loop while gp#null
 
-  if gp_xpos(gp)<xmin then
-   xmin=gp_xpos(gp)
+  if gp.pos.x(gp)<xmin then
+   xmin=gp.pos.x(gp)
   end_if
-  if gp_ypos(gp)<ymin then
-   ymin=gp_ypos(gp)
+  if gp.pos.y(gp)<ymin then
+   ymin=gp.pos.y(gp)
   end_if
-  if gp_zpos(gp)<zmin then
-   zmin=gp_zpos(gp)
+  if gp.pos.z(gp)<zmin then
+   zmin=gp.pos.z(gp)
   end_if
 
- if gp_xpos(gp)>xmax then
-   xmax=gp_xpos(gp)
+ if gp.pos.x(gp)>xmax then
+   xmax=gp.pos.x(gp)
   end_if
- if gp_ypos(gp)>ymax then
-   ymax=gp_ypos(gp)
+ if gp.pos.y(gp)>ymax then
+   ymax=gp.pos.y(gp)
   end_if
- if gp_zpos(gp)>zmax then
-   zmax=gp_zpos(gp)
+ if gp.pos.z(gp)>zmax then
+   zmax=gp.pos.z(gp)
   end_if
- gp=gp_next(gp)
+ gp=gp.next(gp)
  end_loop
 
 ;set up tables
 
- gp=gp_head
+ gp=gp.head
  loop while gp#null
-  gpnum=gp_id(gp)
+  gpnum=gp.id(gp)
   fsarr=(gpnum-1)*3
 
-  mem(fssurf+fsarr)=0
-  mem(fssurf+fsarr+1)=0
-  mem(fssurf+fsarr+2)=0
+  memory(fssurf+fsarr)=0
+  memory(fssurf+fsarr+1)=0
+  memory(fssurf+fsarr+2)=0
 
-  if gp_xpos(gp)=xmin then
-   mem(fssurf+fsarr)=-1
+  if gp.pos.x(gp)=xmin then
+   memory(fssurf+fsarr)=-1
   end_if
-  if gp_ypos(gp)=ymin then
-   mem(fssurf+fsarr+1)=-1
+  if gp.pos.y(gp)=ymin then
+   memory(fssurf+fsarr+1)=-1
   end_if
   
-  if gp_xpos(gp)=xmax then
-   mem(fssurf+fsarr)=1
+  if gp.pos.x(gp)=xmax then
+   memory(fssurf+fsarr)=1
   end_if
-  if gp_ypos(gp)=ymax then
-   mem(fssurf+fsarr+1)=1
+  if gp.pos.y(gp)=ymax then
+   memory(fssurf+fsarr+1)=1
   end_if
-  if gp_zpos(gp)=zmax then
-   mem(fssurf+fsarr+2)=1
+  if gp.pos.z(gp)=zmax then
+   memory(fssurf+fsarr+2)=1
   end_if
   
-  if gp_zpos(gp)=zmin then
-   mem(fssurf+fsarr+2)=-1
+  if gp.pos.z(gp)=zmin then
+   memory(fssurf+fsarr+2)=-1
   end_if
 
-  gp=gp_next(gp)
+  gp=gp.next(gp)
  end_loop
 
 end
-
-
-def regrid
+;
+;
+fish define regrid
 ;Regrids by changing gridpoints to points where they are more inline with 
 ; homogeneous strain
 ;ie two sets of parallel edges
 
 
-mem(pairs1)=1
-mem(pairs1+1)=2
-mem(pairs1+2)=4
-mem(pairs1+3)=7
-mem(pairs1+4)=6
-mem(pairs1+5)=8
-mem(pairs1+6)=3
-mem(pairs1+7)=5
+memory(pairs1)=1
+memory(pairs1+1)=2
+memory(pairs1+2)=4
+memory(pairs1+3)=7
+memory(pairs1+4)=6
+memory(pairs1+5)=8
+memory(pairs1+6)=3
+memory(pairs1+7)=5
 
-mem(pairs2)=1
-mem(pairs2+1)=3
-mem(pairs2+2)=4
-mem(pairs2+3)=6
-mem(pairs2+4)=7
-mem(pairs2+5)=8
-mem(pairs2+6)=2
-mem(pairs2+7)=5
+memory(pairs2)=1
+memory(pairs2+1)=3
+memory(pairs2+2)=4
+memory(pairs2+3)=6
+memory(pairs2+4)=7
+memory(pairs2+5)=8
+memory(pairs2+6)=2
+memory(pairs2+7)=5
 
 ;backup coords
-gp11=gp_head
+gp11=gp.head
 loop while gp11#null
- gpn=gp_id(gp11)
+ gpn=gp.id(gp11)
  crdarr=(gpn-1)*3
- mem(coords2+crdarr)=gp_xpos(gp11)
- mem(coords2+crdarr+1)=gp_ypos(gp11)
- mem(coords2+crdarr+2)=gp_zpos(gp11)
- gp11=gp_next(gp11)
+ memory(coords2+crdarr)=gp.pos.x(gp11)
+ memory(coords2+crdarr+1)=gp.pos.y(gp11)
+ memory(coords2+crdarr+2)=gp.pos.z(gp11)
+ gp11=gp.next(gp11)
 end_loop
 
 
@@ -364,21 +364,21 @@ end_loop
 repairbase
   
 ;backup coords
-gp11=gp_head
+gp11=gp.head
 loop while gp11#null
- gpn=gp_id(gp11)
+ gpn=gp.id(gp11)
  crdarr=(gpn-1)*3
- mem(coords+crdarr)=gp_xpos(gp11)
- mem(coords+crdarr+1)=gp_ypos(gp11)
- mem(coords+crdarr+2)=gp_zpos(gp11)
- gp11=gp_next(gp11)
+ memory(coords+crdarr)=gp.pos.x(gp11)
+ memory(coords+crdarr+1)=gp.pos.y(gp11)
+ memory(coords+crdarr+2)=gp.pos.z(gp11)
+ gp11=gp.next(gp11)
 end_loop
   
   
   
   strout=string(masterl)
-  err=out(strout)
-  p_z=zone_head
+  err=io.out(strout)
+  p_z=zone.head
   loop while p_z#null
    vxav1=0
    vyav1=0
@@ -389,42 +389,42 @@ end_loop
    loop rgi(0,3)
     
     rgpt=rgi*2
-    pt1=mem(pairs1+rgpt)
-    pt2=mem(pairs1+rgpt+1)
-    pt3=mem(pairs2+rgpt)
-    pt4=mem(pairs2+rgpt+1)
+    pt1=memory(pairs1+rgpt)
+    pt2=memory(pairs1+rgpt+1)
+    pt3=memory(pairs2+rgpt)
+    pt4=memory(pairs2+rgpt+1)
   
-    zb1=z_gp(p_z,pt1)
-    zb2=z_gp(p_z,pt2)
+    zb1=zone.gp(p_z,pt1)
+    zb2=zone.gp(p_z,pt2)
     
-    gpn1=gp_id(zb1)
-    gpn2=gp_id(zb2)
+    gpn1=gp.id(zb1)
+    gpn2=gp.id(zb2)
     crdarr=(gpn1-1)*3
-    xpo1=mem(coords+crdarr)
-    ypo1=mem(coords+crdarr+1)
-    zpo1=mem(coords+crdarr+2)
+    xpo1=memory(coords+crdarr)
+    ypo1=memory(coords+crdarr+1)
+    zpo1=memory(coords+crdarr+2)
     crdarr=(gpn2-1)*3
-    xpo2=mem(coords+crdarr)
-    ypo2=mem(coords+crdarr+1)
-    zpo2=mem(coords+crdarr+2)
+    xpo2=memory(coords+crdarr)
+    ypo2=memory(coords+crdarr+1)
+    zpo2=memory(coords+crdarr+2)
     
     vxav1=vxav1+xpo1-xpo2
     vyav1=vyav1+ypo1-ypo2
     vzav1=vzav1+zpo1-zpo2
     
-    zb3=z_gp(p_z,pt3)
-    zb4=z_gp(p_z,pt4)
+    zb3=zone.gp(p_z,pt3)
+    zb4=zone.gp(p_z,pt4)
     
-    gpn3=gp_id(zb3)
-    gpn4=gp_id(zb4)
+    gpn3=gp.id(zb3)
+    gpn4=gp.id(zb4)
     crdarr=(gpn3-1)*3
-    xpo3=mem(coords+crdarr)
-    ypo3=mem(coords+crdarr+1)
-    zpo3=mem(coords+crdarr+2)
+    xpo3=memory(coords+crdarr)
+    ypo3=memory(coords+crdarr+1)
+    zpo3=memory(coords+crdarr+2)
     crdarr=(gpn4-1)*3
-    xpo4=mem(coords+crdarr)
-    ypo4=mem(coords+crdarr+1)
-    zpo4=mem(coords+crdarr+2)
+    xpo4=memory(coords+crdarr)
+    ypo4=memory(coords+crdarr+1)
+    zpo4=memory(coords+crdarr+2)
     vxav2=vxav2+xpo3-xpo4
     vyav2=vyav2+ypo3-ypo4
     vzav2=vzav2+zpo3-zpo4
@@ -438,80 +438,80 @@ end_loop
    
    loop rgi(0,3)
     rgpt=rgi*2
-    pt1=mem(pairs1+rgpt)
-    pt2=mem(pairs1+rgpt+1)
-    pt3=mem(pairs2+rgpt)
-    pt4=mem(pairs2+rgpt+1)
+    pt1=memory(pairs1+rgpt)
+    pt2=memory(pairs1+rgpt+1)
+    pt3=memory(pairs2+rgpt)
+    pt4=memory(pairs2+rgpt+1)
     
-    zb1=z_gp(p_z,pt1)
-    zb2=z_gp(p_z,pt2)
-    zb3=z_gp(p_z,pt3)
-    zb4=z_gp(p_z,pt4)
+    zb1=zone.gp(p_z,pt1)
+    zb2=zone.gp(p_z,pt2)
+    zb3=zone.gp(p_z,pt3)
+    zb4=zone.gp(p_z,pt4)
     
-    gpn1=gp_id(zb1)-1
-    gpn2=gp_id(zb2)-1
-    gpn3=gp_id(zb3)-1
-    gpn4=gp_id(zb4)-1
+    gpn1=gp.id(zb1)-1
+    gpn2=gp.id(zb2)-1
+    gpn3=gp.id(zb3)-1
+    gpn4=gp.id(zb4)-1
     
     crdarr=(gpn1)*3
-    xpo1=mem(coords+crdarr)
-    ypo1=mem(coords+crdarr+1)
-    zpo1=mem(coords+crdarr+2)
+    xpo1=memory(coords+crdarr)
+    ypo1=memory(coords+crdarr+1)
+    zpo1=memory(coords+crdarr+2)
     crdarr=(gpn2)*3
-    xpo2=mem(coords+crdarr)
-    ypo2=mem(coords+crdarr+1)
-    zpo2=mem(coords+crdarr+2)
+    xpo2=memory(coords+crdarr)
+    ypo2=memory(coords+crdarr+1)
+    zpo2=memory(coords+crdarr+2)
     crdarr=(gpn3)*3
-    xpo3=mem(coords+crdarr)
-    ypo3=mem(coords+crdarr+1)
-    zpo3=mem(coords+crdarr+2)
+    xpo3=memory(coords+crdarr)
+    ypo3=memory(coords+crdarr+1)
+    zpo3=memory(coords+crdarr+2)
     crdarr=(gpn4)*3
-    xpo4=mem(coords+crdarr)
-    ypo4=mem(coords+crdarr+1)
-    zpo4=mem(coords+crdarr+2)
+    xpo4=memory(coords+crdarr)
+    ypo4=memory(coords+crdarr+1)
+    zpo4=memory(coords+crdarr+2)
 
 
     vxch=(vxav1-(xpo1-xpo2))/divby 
 
     
     fsarr=gpn1*3
-    if mem(fssurf+fsarr)=0 then
-     gp_xpos(zb1)=gp_xpos(zb1)+vxch
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.x(zb1)=gp.pos.x(zb1)+vxch
     end_if
 
     fsarr=gpn2*3
-    if mem(fssurf+fsarr)=0 then
-     gp_xpos(zb2)=gp_xpos(zb2)-vxch
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.x(zb2)=gp.pos.x(zb2)-vxch
     end_if
     
     vych=(vyav1-(ypo1-ypo2))/divby 
     
     fsarr=gpn1*3+1
-    if mem(fssurf+fsarr)=0 then
-     gp_ypos(zb1)=gp_ypos(zb1)+vych
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.y(zb1)=gp.pos.y(zb1)+vych
     end_if
     
     fsarr=gpn2*3+1
-    if mem(fssurf+fsarr)=0 then
-     gp_ypos(zb2)=gp_ypos(zb2)-vych
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.y(zb2)=gp.pos.y(zb2)-vych
     end_if
     
     vzch=(vzav1-(zpo1-zpo2))/divby 
     
     fsarr=gpn1*3+2
-    if mem(fssurf+fsarr)=0 then
-     if gp_zpos(zb1)=0 then
-      err=in('Error')
+    if memory(fssurf+fsarr)=0 then
+     if gp.pos.z(zb1)=0 then
+      err=io.in('Error')
      end_if
-     gp_zpos(zb1)=gp_zpos(zb1)+vzch
+     gp.pos.z(zb1)=gp.pos.z(zb1)+vzch
     end_if
     
     fsarr=gpn2*3+2
-    if mem(fssurf+fsarr)=0 then
-     if gp_zpos(zb2)=0 then
-      err=in('Error')
+    if memory(fssurf+fsarr)=0 then
+     if gp.pos.z(zb2)=0 then
+      err=io.in('Error')
      end_if
-     gp_zpos(zb2)=gp_zpos(zb2)-vzch
+     gp.pos.z(zb2)=gp.pos.z(zb2)-vzch
     end_if
 
 vxchb=vxch
@@ -521,137 +521,137 @@ vzchb=vzch
     vxch=(vxav2-(xpo3-xpo4))/divby 
     
     fsarr=gpn3*3
-    if mem(fssurf+fsarr)=0 then
-     gp_xpos(zb3)=gp_xpos(zb3)+vxch
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.x(zb3)=gp.pos.x(zb3)+vxch
     end_if
     
     fsarr=gpn4*3
-    if mem(fssurf+fsarr)=0 then
-     gp_xpos(zb4)=gp_xpos(zb4)-vxch
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.x(zb4)=gp.pos.x(zb4)-vxch
     end_if
 
     vych=(vyav2-(ypo3-ypo4))/divby 
     
     fsarr=gpn3*3+1
-    if mem(fssurf+fsarr)=0 then
-     gp_ypos(zb3)=gp_ypos(zb3)+vych
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.y(zb3)=gp.pos.y(zb3)+vych
     end_if
 
     fsarr=gpn4*3+1
-    if mem(fssurf+fsarr)=0 then
-     gp_ypos(zb4)=gp_ypos(zb4)-vych
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.y(zb4)=gp.pos.y(zb4)-vych
     end_if
 
     vzch=(vzav2-(zpo3-zpo4))/divby 
     
     fsarr=gpn3*3+2
-    if mem(fssurf+fsarr)=0 then
-     gp_zpos(zb3)=gp_zpos(zb3)+vzch
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.z(zb3)=gp.pos.z(zb3)+vzch
     end_if
 
     fsarr=gpn4*3+2
-    if mem(fssurf+fsarr)=0 then
-     gp_zpos(zb4)=gp_zpos(zb4)-vzch
+    if memory(fssurf+fsarr)=0 then
+     gp.pos.z(zb4)=gp.pos.z(zb4)-vzch
     end_if    
 
    
    end_loop
-   p_z=z_next(p_z)
+   p_z=zone.next(p_z)
   end_loop
  
  maxch=0
- gp=gp_head
+ gp=gp.head
  loop while gp#null
-  gpn=gp_id(gp)
-  xpn=gp_xpos(gp)
-  ypn=gp_ypos(gp)
-  zpn=gp_zpos(gp)
+  gpn=gp.id(gp)
+  xpn=gp.pos.x(gp)
+  ypn=gp.pos.y(gp)
+  zpn=gp.pos.z(gp)
   crdarr=(gpn-1)*3
-  xpo=mem(coords+crdarr)
-  ypo=mem(coords+crdarr+1)
-  zpo=mem(coords+crdarr+2)
+  xpo=memory(coords+crdarr)
+  ypo=memory(coords+crdarr+1)
+  zpo=memory(coords+crdarr+2)
   rng=(xpo-xpn)^2+(ypo-ypn)^2+(zpo-zpn)^2
   if rng>maxch then 
    maxch=rng
   end_if
-  gp=gp_next(gp)
+  gp=gp.next(gp)
  end_loop
- maxch=sqrt(maxch)
- err=out('Max change this step')
+ maxch=math.sqrt(maxch)
+ err=io.out('Max change this step')
  command
-  list @maxch
+    list @maxch
  end_command
  end_loop;master loop
 
 ;Preserve surface topography
-gp22=gp_head 
+gp22=gp.head 
 loop while gp22#null
- gpn=gp_id(gp22)
+ gpn=gp.id(gp22)
  fsarr=(gpn-1)*3
- if mem(fssurf+fsarr+2)#0 then
-  if gp_zpos(gp22)#0 then
-   zn=z_near(gp_xpos(gp22)+0.1,gp_ypos(gp22),gp_zpos(gp22))
-   gp4=z_gp(zn,4)
-   gp7=z_gp(zn,7)
-   gp6=z_gp(zn,6)
-   gp8=z_gp(zn,8)
-   gpn4=gp_id(gp4)
-   gpn7=gp_id(gp7)
-   gpn6=gp_id(gp6)
-   gpn8=gp_id(gp8)
+ if memory(fssurf+fsarr+2)#0 then
+  if gp.pos.z(gp22)#0 then
+   zn=zone.near(gp.pos.x(gp22)+0.1,gp.pos.y(gp22),gp.pos.z(gp22))
+   gp4=zone.gp(zn,4)
+   gp7=zone.gp(zn,7)
+   gp6=zone.gp(zn,6)
+   gp8=zone.gp(zn,8)
+   gpn4=gp.id(gp4)
+   gpn7=gp.id(gp7)
+   gpn6=gp.id(gp6)
+   gpn8=gp.id(gp8)
    
    gparr=(gpn-1)*3
-   oldx=mem(coords2+gparr)
-   oldy=mem(coords2+gparr+1)
-   oldz=mem(coords2+gparr+2)
+   oldx=memory(coords2+gparr)
+   oldy=memory(coords2+gparr+1)
+   oldz=memory(coords2+gparr+2)
    
    gparr=(gpn4-1)*3
-   oldx4=mem(coords2+gparr)
-   oldy4=mem(coords2+gparr+1)
-   oldz4=mem(coords2+gparr+2)
+   oldx4=memory(coords2+gparr)
+   oldy4=memory(coords2+gparr+1)
+   oldz4=memory(coords2+gparr+2)
    gparr=(gpn7-1)*3
-   oldx7=mem(coords2+gparr)
-   oldy7=mem(coords2+gparr+1)
-   oldz7=mem(coords2+gparr+2)
+   oldx7=memory(coords2+gparr)
+   oldy7=memory(coords2+gparr+1)
+   oldz7=memory(coords2+gparr+2)
    gparr=(gpn6-1)*3
-   oldx6=mem(coords2+gparr)
-   oldy6=mem(coords2+gparr+1)
-   oldz6=mem(coords2+gparr+2)
+   oldx6=memory(coords2+gparr)
+   oldy6=memory(coords2+gparr+1)
+   oldz6=memory(coords2+gparr+2)
    gparr=(gpn8-1)*3
-   oldx8=mem(coords2+gparr)
-   oldy8=mem(coords2+gparr+1)
-   oldz8=mem(coords2+gparr+2)
+   oldx8=memory(coords2+gparr)
+   oldy8=memory(coords2+gparr+1)
+   oldz8=memory(coords2+gparr+2)
 
    chngzx=(oldz7+oldz8-oldz4-oldz6)
    chngzx=chngzx/(oldx7+oldx8-oldx4-oldx6)
    chngzy=(oldz6+oldz8-oldz4-oldz7)
    chngzy=chngzy/(oldy6+oldy8-oldy4-oldy7)
 
-   xcg=gp_xpos(gp22)-oldx
-   ycg=gp_ypos(gp22)-oldy
+   xcg=gp.pos.x(gp22)-oldx
+   ycg=gp.pos.y(gp22)-oldy
    chz=chngzx*xcg+chngzy*ycg
    
-   gp_zpos(gp22)=gp_zpos(gp22)+chz
+   gp.pos.z(gp22)=gp.pos.z(gp22)+chz
   end_if
  end_if
- gp22=gp_next(gp22)
+ gp22=gp.next(gp22)
 end_loop 
 
 ;preserve velocities and displacements
 maxch=0
 
-xvm=get_mem(ngp)
-yvm=get_mem(ngp)
-zvm=get_mem(ngp)
-xdm=get_mem(ngp)
-ydm=get_mem(ngp)
-zdm=get_mem(ngp)
+xvm=memory.create(gp.num)
+yvm=memory.create(gp.num)
+zvm=memory.create(gp.num)
+xdm=memory.create(gp.num)
+ydm=memory.create(gp.num)
+zdm=memory.create(gp.num)
 
-gp33=gp_head
+gp33=gp.head
 loop while gp33#null
- xpn=gp_xpos(gp33)
- ypn=gp_ypos(gp33)
- zpn=gp_zpos(gp33)
+ xpn=gp.pos.x(gp33)
+ ypn=gp.pos.y(gp33)
+ zpn=gp.pos.z(gp33)
  xtot=0
  ytot=0
  ztot=0
@@ -660,14 +660,14 @@ loop while gp33#null
  zdtot=0
  alltot=0
 
- gpn=gp_id(gp33)
+ gpn=gp.id(gp33)
  gparr=(gpn-1)*6
  gpn2=1
  rgl=0
  endflg=0
 
  loop while gpn2#0 
-  gpn2=mem(gparr+rgct+rgl)
+  gpn2=memory(gparr+rgct+rgl)
   if gpn2=0 then
    gpn2=gpn
    endflg=1
@@ -675,17 +675,17 @@ loop while gp33#null
   end_if
 
   crdarr=(gpn2-1)*3
-  xpo=mem(coords2+crdarr)
-  ypo=mem(coords2+crdarr+1)
-  zpo=mem(coords2+crdarr+2)
-  rng=sqrt((xpo-xpn)^2+(ypo-ypn)^2+(zpo-zpn)^2)+1e-8
-  gp2=mem(gpn2gp+gpn2-1)
-  xtot=xtot+gp_xvel(gp2)/rng
-  ytot=ytot+gp_yvel(gp2)/rng
-  ztot=ztot+gp_zvel(gp2)/rng
-  xdtot=xdtot+gp_xdisp(gp2)/rng
-  ydtot=ydtot+gp_ydisp(gp2)/rng
-  zdtot=zdtot+gp_zdisp(gp2)/rng
+  xpo=memory(coords2+crdarr)
+  ypo=memory(coords2+crdarr+1)
+  zpo=memory(coords2+crdarr+2)
+  rng=math.sqrt((xpo-xpn)^2+(ypo-ypn)^2+(zpo-zpn)^2)+1e-8
+  gp2=memory(gpn2gp+gpn2-1)
+  xtot=xtot+gp.vel.x(gp2)/rng
+  ytot=ytot+gp.vel.y(gp2)/rng
+  ztot=ztot+gp.vel.z(gp2)/rng
+  xdtot=xdtot+gp.disp.x(gp2)/rng
+  ydtot=ydtot+gp.disp.y(gp2)/rng
+  zdtot=zdtot+gp.disp.z(gp2)/rng
   alltot=alltot+1/rng
   rgl=rgl+1
   if rgl>5 then 
@@ -699,89 +699,89 @@ loop while gp33#null
   end_if
  end_loop
 
- mem(xvm+gpn-1)=xtot/alltot
- mem(yvm+gpn-1)=ytot/alltot
- mem(zvm+gpn-1)=ztot/alltot
- mem(xdm+gpn-1)=xdtot/alltot
- mem(ydm+gpn-1)=ydtot/alltot
- mem(zdm+gpn-1)=zdtot/alltot
- gp33=gp_next(gp33)
+ memory(xvm+gpn-1)=xtot/alltot
+ memory(yvm+gpn-1)=ytot/alltot
+ memory(zvm+gpn-1)=ztot/alltot
+ memory(xdm+gpn-1)=xdtot/alltot
+ memory(ydm+gpn-1)=ydtot/alltot
+ memory(zdm+gpn-1)=zdtot/alltot
+ gp33=gp.next(gp33)
 end_loop
 
-err=out('Max total change')
+err=io.out('Max total change')
 command
- list @maxch
+  list @maxch
 end_command
 
 ;copy back vels and disps
-gp44=gp_head
+gp44=gp.head
 loop while gp44#null
- gpn=gp_id(gp44)
+ gpn=gp.id(gp44)
  
  fsarr=(gpn-1)*3
- if mem(fssurf+fsarr)=0 then
-  gp_xvel(gp44)=mem(xvm+gpn-1)
+ if memory(fssurf+fsarr)=0 then
+  gp.vel.x(gp44)=memory(xvm+gpn-1)
  end_if
  
- if mem(fssurf+fsarr+1)=0 then
-  gp_yvel(gp44)=mem(yvm+gpn-1)
+ if memory(fssurf+fsarr+1)=0 then
+  gp.vel.y(gp44)=memory(yvm+gpn-1)
  end_if
  
- if mem(fssurf+fsarr+2)=0 then
-  gp_zvel(gp44)=mem(zvm+gpn-1)
+ if memory(fssurf+fsarr+2)=0 then
+  gp.vel.z(gp44)=memory(zvm+gpn-1)
  end_if
  
- if mem(fssurf+fsarr+2)=1 then
-  gp_zvel(gp44)=mem(zvm+gpn-1)
+ if memory(fssurf+fsarr+2)=1 then
+  gp.vel.z(gp44)=memory(zvm+gpn-1)
  end_if
  
 
- if mem(fssurf+fsarr)=0 then
-  gp_xdisp(gp44)=mem(xdm+gpn-1)
+ if memory(fssurf+fsarr)=0 then
+  gp.disp.x(gp44)=memory(xdm+gpn-1)
  end_if
  
- if mem(fssurf+fsarr+1)=0 then
-  gp_ydisp(gp44)=mem(ydm+gpn-1)
+ if memory(fssurf+fsarr+1)=0 then
+  gp.disp.y(gp44)=memory(ydm+gpn-1)
  end_if
  
- if mem(fssurf+fsarr+2)=0 then
-  gp_zdisp(gp44)=mem(zdm+gpn-1)
+ if memory(fssurf+fsarr+2)=0 then
+  gp.disp.z(gp44)=memory(zdm+gpn-1)
  end_if
  
- if mem(fssurf+fsarr+2)=1 then
-  gp_zdisp(gp44)=mem(zdm+gpn-1)
+ if memory(fssurf+fsarr+2)=1 then
+  gp.disp.z(gp44)=memory(zdm+gpn-1)
  end_if
  
- gp44=gp_next(gp44)
+ gp44=gp.next(gp44)
 end_loop
 
-err=lose_mem(ngp,xvm)
-err=lose_mem(ngp,yvm)
-err=lose_mem(ngp,zvm)
-err=lose_mem(ngp,xdm)
-err=lose_mem(ngp,ydm)
-err=lose_mem(ngp,zdm)
+err=memory.delete(xvm)
+err=memory.delete(yvm)
+err=memory.delete(zvm)
+err=memory.delete(xdm)
+err=memory.delete(ydm)
+err=memory.delete(zdm)
 
 
 
 ;preserve zone stresses
- sxxm=get_mem(nzone)
- sxym=get_mem(nzone)
- sxzm=get_mem(nzone)
- syym=get_mem(nzone)
- syzm=get_mem(nzone)
- szzm=get_mem(nzone)
+ sxxm=memory.create(zone.num)
+ sxym=memory.create(zone.num)
+ sxzm=memory.create(zone.num)
+ syym=memory.create(zone.num)
+ syzm=memory.create(zone.num)
+ szzm=memory.create(zone.num)
 
 
-zn=zone_head
+zn=zone.head
 loop while zn#null
  midptx=0
  midpty=0
  midptz=0
  loop rgi(1,8)
-  midptx=midptx+gp_xpos(z_gp(zn,rgi))
-  midpty=midpty+gp_ypos(z_gp(zn,rgi))
-  midptz=midptz+gp_zpos(z_gp(zn,rgi))
+  midptx=midptx+gp.pos.x(zone.gp(zn,rgi))
+  midpty=midpty+gp.pos.y(zone.gp(zn,rgi))
+  midptz=midptz+gp.pos.z(zone.gp(zn,rgi))
  end_loop
  midptx=midptx/8
  midpty=midpty/8
@@ -795,7 +795,7 @@ loop while zn#null
  szztot=0
  alltot=0
 
- znn=z_id(zn) 
+ znn=zone.id(zn) 
  
 
  znarr=(znn-1)*27
@@ -803,20 +803,20 @@ loop while zn#null
  zni=0
 
  loop while znn2#0
-  znn2=mem(zzm+znarr+zni)
+  znn2=memory(zzm+znarr+zni)
   
   if znn2#0 then
-   zn2=mem(znn2zn+znn2-1)
+   zn2=memory(znn2zn+znn2-1)
    oldmx=0
    oldmy=0
    oldmz=0
    loop rgi(1,8)
-    gp2=z_gp(zn2,rgi)
-    gpn=gp_id(gp2)
+    gp2=zone.gp(zn2,rgi)
+    gpn=gp.id(gp2)
     crdarr=(gpn-1)*3
-    xpo=mem(coords2+crdarr)
-    ypo=mem(coords2+crdarr+1)
-    zpo=mem(coords2+crdarr+2)
+    xpo=memory(coords2+crdarr)
+    ypo=memory(coords2+crdarr+1)
+    zpo=memory(coords2+crdarr+2)
     oldmx=oldmx+xpo
     oldmy=oldmy+ypo
     oldmz=oldmz+zpo
@@ -825,15 +825,15 @@ loop while zn#null
    oldmy=oldmy/8
    oldmz=oldmz/8
 
-   rng=sqrt((oldmx-midptx)^2+(oldmy-midpty)^2+(oldmz-midptz)^2)+1e-8
-   sxxtot=sxxtot+z_sxx(zn2)/rng
-   sxxbfr=z_sxx(zn2)/rng
-   sxxbf= z_sxx(zn2)
-   sxytot=sxytot+z_sxy(zn2)/rng
-   sxztot=sxztot+z_sxz(zn2)/rng
-   syytot=syytot+z_syy(zn2)/rng
-   syztot=syztot+z_syz(zn2)/rng
-   szztot=szztot+z_szz(zn2)/rng
+   rng=math.sqrt((oldmx-midptx)^2+(oldmy-midpty)^2+(oldmz-midptz)^2)+1e-8
+   sxxtot=sxxtot+zone.stress.xx(zn2)/rng
+   sxxbfr=zone.stress.xx(zn2)/rng
+   sxxbf= zone.stress.xx(zn2)
+   sxytot=sxytot+zone.stress.xy(zn2)/rng
+   sxztot=sxztot+zone.stress.xz(zn2)/rng
+   syytot=syytot+zone.stress.yy(zn2)/rng
+   syztot=syztot+zone.stress.yz(zn2)/rng
+   szztot=szztot+zone.stress.zz(zn2)/rng
    alltot=alltot+1/rng
    
   end_if
@@ -842,43 +842,43 @@ loop while zn#null
    znn2=0
   end_if
  end_loop 
- mem(sxxm+znn-1)=sxxtot/alltot
- mem(sxym+znn-1)=sxytot/alltot
- mem(sxzm+znn-1)=sxztot/alltot
- mem(syym+znn-1)=syytot/alltot
- mem(syzm+znn-1)=syztot/alltot
- mem(szzm+znn-1)=szztot/alltot
+ memory(sxxm+znn-1)=sxxtot/alltot
+ memory(sxym+znn-1)=sxytot/alltot
+ memory(sxzm+znn-1)=sxztot/alltot
+ memory(syym+znn-1)=syytot/alltot
+ memory(syzm+znn-1)=syztot/alltot
+ memory(szzm+znn-1)=szztot/alltot
 
- zn=z_next(zn)
+ zn=zone.next(zn)
 end_loop 
-zn=zone_head
+zn=zone.head
 loop while zn#null
- znn=z_id(zn)
- z_sxx(zn)=mem(sxxm+znn-1)
- z_sxy(zn)=mem(sxym+znn-1)
- z_sxz(zn)=mem(sxzm+znn-1)
- z_syy(zn)=mem(syym+znn-1)
- z_syz(zn)=mem(syzm+znn-1)
- z_szz(zn)=mem(szzm+znn-1)
- zn=z_next(zn)
+ znn=zone.id(zn)
+ zone.stress.xx(zn)=memory(sxxm+znn-1)
+ zone.stress.xy(zn)=memory(sxym+znn-1)
+ zone.stress.xz(zn)=memory(sxzm+znn-1)
+ zone.stress.yy(zn)=memory(syym+znn-1)
+ zone.stress.yz(zn)=memory(syzm+znn-1)
+ zone.stress.zz(zn)=memory(szzm+znn-1)
+ zn=zone.next(zn)
 end_loop
 
-err=lose_mem(nzone,sxxm)
-err=lose_mem(nzone,sxym)
-err=lose_mem(nzone,sxzm)
-err=lose_mem(nzone,syym)
-err=lose_mem(nzone,syzm)
-err=lose_mem(nzone,szzm)
+err=memory.delete(sxxm)
+err=memory.delete(sxym)
+err=memory.delete(sxzm)
+err=memory.delete(syym)
+err=memory.delete(syzm)
+err=memory.delete(szzm)
 
 end
-
+;
 @setupmem
-
+;
 list @rgct
-
+;
 @zones_gp_ct
-
+;
 @findsurfaces
-
-set @divby 20 ;the diffusion coefficient => the larger the more stable and slower 
-set @mloop 10 ;the number of regrid iterations
+;
+fish set @divby 20 ;the diffusion coefficient => the larger the more stable and slower 
+fish set @mloop 10 ;the number of regrid iterations
